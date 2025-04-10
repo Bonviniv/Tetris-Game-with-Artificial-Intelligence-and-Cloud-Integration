@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { TetrisBoardComponent } from './components/tetris-board/tetris-board.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  standalone: true,
+  imports: [TetrisBoardComponent],
+  template: '<app-tetris-board></app-tetris-board>'
 })
 export class AppComponent {
   title = 'tetris-web';

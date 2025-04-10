@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { TetrisComponent } from './components/tetris/tetris.component';
-import { TetrisService } from './services/tetris.service';
+import { TetrisBoardComponent } from './components/tetris-board/tetris-board.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TetrisComponent
+    TetrisBoardComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [TetrisService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
