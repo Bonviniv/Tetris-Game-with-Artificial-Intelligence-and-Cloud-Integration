@@ -1,0 +1,60 @@
+c:\Users\vitor\OneDrive\Desktop\tetris\
+├── tetris-java\
+│   ├── src\
+│   │   ├── main\
+│   │   │   └── java\
+│   │   │       └── com\
+│   │   │           └── tetris\
+│   │   │               └── game\
+│   │   │                   ├── Board.java
+│   │   │                   ├── Game.java
+│   │   │                   ├── GameEngine.java
+│   │   │                   └── Piece.java
+│   │   └── test\
+│   │       └── java\
+│   │           └── com\
+│   │               └── tetris\
+│   │                   └── game\
+│   │                       ├── BoardTest.java
+│   │                       ├── GameTest.java
+│   │                       ├── GameEngineTest.java
+│   │                       └── PieceTest.java
+│   └── pom.xml
+├── tetris-angular\
+│   ├── src\
+│   │   ├── app\
+│   │   │   ├── components\
+│   │   │   │   ├── game-board\
+│   │   │   │   │   ├── game-board.component.ts
+│   │   │   │   │   ├── game-board.component.html
+│   │   │   │   │   └── game-board.component.css
+│   │   │   │   └── ghost-piece\
+│   │   │   │       ├── ghost-piece.component.ts
+│   │   │   │       ├── ghost-piece.component.html
+│   │   │   │       └── ghost-piece.component.css
+│   │   │   ├── services\
+│   │   │   │   ├── score.service.ts
+│   │   │   │   └── ai-suggester.service.ts
+│   │   │   └── models\
+│   │   │       ├── board.model.ts
+│   │   │       └── piece.model.ts
+│   │   ├── assets\
+│   │   │   └── weights\
+│   │   │       └── final_weights.json
+│   │   └── environments\
+│   │       ├── environment.ts
+│   │       └── firebase-config.ts
+│   ├── package.json
+│   └── angular.json
+├── training\
+│   └── src\
+│       └── main\
+│           └── java\
+│               └── com\
+│                   └── tetris\
+│                       └── training\
+│                           ├── Trainer.java
+│                           └── GeneticAlgorithm.java
+└── planning\
+    ├── initial plan.txt
+    └── structure.txt

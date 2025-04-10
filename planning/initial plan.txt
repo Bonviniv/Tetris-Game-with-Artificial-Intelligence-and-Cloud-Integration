@@ -1,0 +1,150 @@
+## Tetris Game with AI and Interactive Site — Planning Document
+
+### Overview
+A project consisting of three main components:
+1. A Tetris game written in Java.
+2. An efficient neural network trained offline to suggest moves.
+3. An Angular-based web app where the player can play Tetris and optionally view the move that the AI would make.
+
+### Project Structure (Monorepo)
+```
+/tetris-java        -> Java Tetris game and neural network logic
+/training           -> Genetic algorithm scripts for training
+/tetris-angular     -> Angular web interface
+```
+
+---
+
+## 1. Java Tetris Game
+
+### Game Mechanics
+- **Board**: 10x20 grid.
+- **Pieces**: All 7 classic Tetris pieces (I, J, L, O, S, T, Z).
+- **Controls**:
+  - Left/Right arrows: move piece
+  - Down arrow: soft drop
+  - Up arrow: rotate piece
+
+### Representation
+- **Piece**: Object with:
+  - Shape (4x4 matrix or list of coordinates)
+  - Current rotation
+  - Position (x, y)
+- **Board**: Grid of cells represented using an enum (`EMPTY`, `FIXED_BLOCK`, `ACTIVE_BLOCK`, etc.)
+
+### Collision Detection
+- Classic Tetris-style collision check:
+  - Validates if the piece collides with walls, floor, or fixed blocks.
+
+---
+
+## 2. Java Neural Network (AI)
+
+### Configuration
+- **Architecture**: Shallow and efficient (e.g., single hidden layer).
+- **Input**: Encoded board state as a numerical matrix.
+- **Output**: Best final position for the current piece (column and rotation).
+- **Execution**: Fully offline.
+
+### Training
+- **Algorithm**: Genetic algorithm.
+- **Fitness Function**: Evaluated based on:
+  - Number of lines cleared
+  - Maximum column height
+  - Number of holes
+- **Saved Data**:
+  - Final trained weights only (as JSON)
+  - Training metrics (best score, average lines, current generation) in a separate file
+
+### Testing
+- Automated tests using **JUnit** to validate:
+  - Movement and collision logic
+  - Scoring system
+  - AI move suggestions
+
+---
+
+## 3. Angular Web Application (Tetris + AI)
+
+### Features
+- Full Tetris gameplay with arrow key controls.
+- Button to request AI suggestion:
+  - Displays a "ghost piece" at the AI-recommended position.
+
+### UI and Visuals
+- Retro-inspired visual style with colorful but minimalist design.
+- Visual effects:
+  - Smooth falling transitions
+  - Line clear animations
+
+### Mobile Support
+- On-screen arrow buttons for mobile controls.
+
+### Firebase Integration
+- Scores saved at game over.
+- Public leaderboard (no authentication).
+- Any player can submit their score.
+
+### AI Integration
+- Static JSON file with weights embedded in front-end.
+- No REST API or backend: AI runs entirely in-browser.
+
+---
+
+## Technical Extras
+- No export/import of settings or scores.
+- No difficulty levels.
+- No audio or music.
+- No plans for CI/CD or Docker usage.
+
+---
+
+## Documentation
+Repository will include:
+- README with build and usage instructions
+- Description of AI training process
+- Instructions for generating weight JSON
+- Screenshots and demo GIFs
+- Open-source license (e.g., MIT)
+
+---
+
+## Code Structure Sketch
+
+### /tetris-java
+- `Main.java`
+- `Board.java`
+- `Piece.java`
+- `CollisionDetector.java`
+- `GameLoop.java`
+- `NeuralNetwork.java`
+- `AISuggester.java`
+- `ScoreManager.java`
+- `tests/`
+  - `BoardTest.java`
+  - `NeuralNetworkTest.java`
+
+### /training
+- `Trainer.java`
+- `GeneticAlgorithm.java`
+- `FitnessFunction.java`
+- `DataLogger.java`
+- `weights/`
+  - `final_weights.json`
+  - `training_metrics.txt`
+
+### /tetris-angular
+- `src/app`
+  - `components/game-board`
+  - `components/ghost-piece`
+  - `services/ai-suggester.service.ts`
+  - `services/score.service.ts`
+  - `assets/weights/final_weights.json`
+  - `environments/`
+  - `firebase-config.ts`
+
+---
+
+## Conclusion
+This plan outlines the core logic, technical design,
+ and implementation roadmap for the full-stack Tetris project.
