@@ -1,2 +1,2 @@
-# Bonviniv/Tetris-Game-with-Artificial-Intelligence-and-Cloud-Integration
+Tetris-Game-with-Artificial-Intelligence-and-Cloud-Integration
  
