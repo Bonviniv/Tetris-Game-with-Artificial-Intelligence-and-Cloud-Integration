@@ -10,8 +10,8 @@ public class GUI extends JFrame {
     private GameEngine gameEngine;
     private static final int BLOCK_SIZE = 30;
     private static final int PADDING = 10;
-    private static final int WINDOW_WIDTH = 600;
-    private static final int WINDOW_HEIGHT = 600;
+    private static final int WINDOW_WIDTH = 700;
+    private static final int WINDOW_HEIGHT = 700;
     private static final int BOARD_X = 50;
     private static final int BOARD_Y = 50;
 
